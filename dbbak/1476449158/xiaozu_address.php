@@ -1,0 +1,27 @@
+<?php return array (
+  0 => 'CREATE TABLE `xiaozu_address` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `userid` int(20) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `address` varchar(255) NOT NULL COMMENT \'完整地址：选择地址与详细地址\',
+  `phone` varchar(15) NOT NULL,
+  `otherphone` varchar(15) DEFAULT NULL,
+  `contactname` varchar(50) DEFAULT NULL,
+  `default` int(1) NOT NULL DEFAULT \'1\',
+  `areaid1` int(20) NOT NULL DEFAULT \'0\' COMMENT \'区域1ID\',
+  `areaid2` int(20) NOT NULL DEFAULT \'0\' COMMENT \'区域2ID\',
+  `areaid3` int(20) NOT NULL DEFAULT \'0\' COMMENT \'区域3ID\',
+  `sex` smallint(1) NOT NULL DEFAULT \'0\' COMMENT \'1时是男性，值为2时是女性，值为0时是未知\',
+  `bigadr` varchar(255) NOT NULL COMMENT \'选择的地址\',
+  `detailadr` varchar(255) NOT NULL COMMENT \'详细地址\',
+  `lat` decimal(9,6) NOT NULL COMMENT \'地址坐标\',
+  `lng` decimal(9,6) NOT NULL COMMENT \'地址坐标\',
+  `addtime` int(11) NOT NULL COMMENT \'时间\',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8',
+  1 => 'INSERT INTO `xiaozu_address`(`id`,`userid`,`username`,`address`,`phone`,`otherphone`,`contactname`,`default`,`areaid1`,`areaid2`,`areaid3`,`sex`,`bigadr`,`detailadr`,`lat`,`lng`,`addtime`) VALUES(\'4\',\'2953\',\'李心阔-18971931166\',\'车乐园汽车装饰养护中心富贵有余\',\'18971941166\',\'\',\'统一规范\',\'1\',\'0\',\'0\',\'0\',\'0\',\'车乐园汽车装饰养护中心\',\'富贵有余\',\'31.750495\',\'110.671023\',\'1472712640\')',
+  2 => 'INSERT INTO `xiaozu_address`(`id`,`userid`,`username`,`address`,`phone`,`otherphone`,`contactname`,`default`,`areaid1`,`areaid2`,`areaid3`,`sex`,`bigadr`,`detailadr`,`lat`,`lng`,`addtime`) VALUES(\'5\',\'2958\',\'wmr\',\'图书馆,清扬路,新华书店145号\',\'15584567890\',\'\',\'测试的\',\'1\',\'0\',\'0\',\'0\',\'0\',\'图书馆,清扬路,新华书店\',\'145号\',\'31.570037\',\'120.305456\',\'1473386240\')',
+  3 => 'INSERT INTO `xiaozu_address`(`id`,`userid`,`username`,`address`,`phone`,`otherphone`,`contactname`,`default`,`areaid1`,`areaid2`,`areaid3`,`sex`,`bigadr`,`detailadr`,`lat`,`lng`,`addtime`) VALUES(\'6\',\'2959\',\'luguiyao\',\'高桥镇,望春哈哈哈\',\'13484848484\',\'\',\'哈哈哈哈\',\'1\',\'0\',\'0\',\'0\',\'0\',\'高桥镇,望春\',\'哈哈哈\',\'29.889021\',\'121.491132\',\'1473509537\')',
+  4 => 'INSERT INTO `xiaozu_address`(`id`,`userid`,`username`,`address`,`phone`,`otherphone`,`contactname`,`default`,`areaid1`,`areaid2`,`areaid3`,`sex`,`bigadr`,`detailadr`,`lat`,`lng`,`addtime`) VALUES(\'8\',\'2961\',\'jurzxxx\',\'大望路,华贸,百子湾sh sh sh hs\',\'15110087666\',\'\',\'呵呵\',\'1\',\'0\',\'0\',\'0\',\'0\',\'大望路,华贸,百子湾\',\'sh sh sh hs\',\'39.913413\',\'116.486028\',\'1474265490\')',
+  5 => 'INSERT INTO `xiaozu_address`(`id`,`userid`,`username`,`address`,`phone`,`otherphone`,`contactname`,`default`,`areaid1`,`areaid2`,`areaid3`,`sex`,`bigadr`,`detailadr`,`lat`,`lng`,`addtime`) VALUES(\'9\',\'2963\',\'001yu\',\'第四汽车综合性能检测站5号\',\'15187593607\',\'\',\'啦啦\',\'1\',\'0\',\'0\',\'0\',\'0\',\'第四汽车综合性能检测站\',\'5号\',\'25.065975\',\'102.656862\',\'1475948982\')',
+)?>

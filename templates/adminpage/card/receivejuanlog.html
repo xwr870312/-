@@ -1,0 +1,144 @@
+<{extends file="<{$tempdir}>/public/admin.html"}>
+<{block name=extendjs}>
+<script type="text/javascript" language="javascript" src="<{$siteurl}>/templates/<{$tempdir}>/public/js/artdialog/plugins/iframeTools.js"></script>
+<script src="<{$siteurl}>/templates/<{$tempdir}>/public/js/datepicker/WdatePicker.js" type="text/javascript" language="javascript"></script>
+<{/block}>
+ <{block name=controlname}>优惠券领取记录列表<{/block}>
+ <{block name=bodylist}>
+
+      <div style="width:auto;overflow-x:hidden;overflow-y:auto">
+
+      	  <div class="search" style="height:auto;">
+
+
+            <div class="search_content">
+
+            	 <form method="post" name="form1" action="<{ofunc type=url link="/adminpage/card/module/receivejuanlog"}>">
+
+             
+			  <label>名称：</label>
+            	   <input type="text" name="name" value="<{$name}>" style="width:200px;"> 
+			   <label>领取人：</label>
+            	   <input type="text" name="username" value="<{$username}>" style="width:200px;"> 
+			  <label>绑定手机号：</label>
+            	   <input type="text" name="bangphone" value="<{$bangphone}>" style="width:200px;"> 
+			 
+			 
+            	   <select name="type">
+            	   	  <option value="all">请选择优惠券类型</option>
+ 			   		 	  	  <option value="1" <{if $type == '1'}>selected<{/if}>>充值送</option>
+			   		 	  	  <option value="2" <{if $type == '2'}>selected<{/if}>>下单分享领取</option>
+			   		 	  	  <option value="3" <{if $type == '3'}>selected<{/if}>>推广领取</option>
+			   		 	  	  <option value="4" <{if $type == '4'}>selected<{/if}>>返赠（新用户领取后返赠给分享者）</option>
+			   		 	  	  <option value="5" <{if $type == '5'}>selected<{/if}>>关注微信领取</option>
+            	  </select>
+				  
+				     <select name="status">
+            	   	  <option value="all">请选择优惠券状态</option>
+ 			   		 	  	  <option value="1" <{if $status == '1'}>selected<{/if}>>未使用</option>
+ 			   		 	  	  <option value="2" <{if $status == '2'}>selected<{/if}>>已绑定</option>
+			   		 	  	  <option value="3" <{if $status == '3'}>selected<{/if}>>已使用</option>
+			   		 	  	  <option value="4" <{if $status == '4'}>selected<{/if}>>无效</option>
+            	  </select>
+				  
+            	 领取时间
+            	   从<input class="Wdate datefmt" type="text" name="starttime" id="starttime" value="<{$starttime|date_format:"%Y-%m-%d"}>"  onFocus="WdatePicker({isShowClear:false,readOnly:true});" />
+			   		 	  到<input class="Wdate datefmt" type="text" name="endtime" id="endtime" value="<{$endtime|date_format:"%Y-%m-%d"}>"  onFocus="WdatePicker({isShowClear:false,readOnly:true});" />
+
+
+            	    <input type="submit" value="提交查询" class="button">
+            	 </form>
+            </div>
+
+      	</div>
+
+
+
+
+
+
+           <div class="tags">
+
+
+
+          <div id="tagscontent">
+
+            <div id="con_one_1">
+
+              <div class="table_td" style="margin-top:10px;">
+
+              <form method="post" action="" onsubmit="return remind();" id="delform">
+
+                  <table border="0" cellspacing="2" cellpadding="4" class="list" name="table" id="table" width="100%">
+
+                    <thead>
+
+                      <tr>
+
+                        <th width="60px"><input type="checkbox" id="chkall" name="chkall" onclick="checkall()"></th>
+
+                        <th align="center">id</th>
+                        <th align="center">优惠券类型</th> 
+                         <th align="center">名称</th>
+                        <th align="center">限制金额</th>
+                         <th align="center">优惠金额</th>
+                         <th align="center">领取人</th>
+                        <th align="center">绑定手机号</th>
+                        <th align="center">领取时间</th>
+                        <th align="center">失效时间</th>
+                        <th align="center">状态</th>
+                        <th align="center">支持支付方式</th>
+                        <th align="center">使用时间</th>
+ 
+                      </tr>
+
+                    </thead>
+
+                     <tbody>
+                       <{foreach from=$receivejuanlog item=items}>
+                      <tr class="s_out" onmouseover="this.bgColor='#F5F5F5';" onmouseout="this.bgColor='ffffff';" bgcolor="#ffffff">
+                        <td align="center" ><input type="checkbox" name="id[]" value="<{$items['id']}>"></td>
+                        <td align="center"><{$items['id']}></td>
+                        <td align="center"  ><{$juantypename[$items['type']]}></td>
+                        <td align="center"> <{$items['name']}> </td>
+                        <td align="center"><{$items['limitcost']}>元</td>
+                        <td align="center"><{$items['cost']}>元</td>
+                        <td align="center"><{if !empty($items['username']) }><{$items['username']}><{/if}></td>
+                        <td align="center"><{$items['bangphone']}></td> 
+						<td align="center"><{$items['creattime']|date_format:"%Y-%m-%d %H:%M"}></td> 
+						<td align="center"><{$items['endtime']|date_format:"%Y-%m-%d %H:%M"}></td> 
+ 						 <td align="center"  ><{$juanstatus[$items['status']]}></td>
+ 						 <td align="center"  >
+						  <{assign var=paytypearr value=","|explode:$items['paytype']}> 
+						 <{if  in_array(1,$paytypearr ) }>货到付款<br /> <{/if}>
+							 <{if  in_array(2,$paytypearr ) }>在线支付<{/if}>
+						 </td>
+						<td align="center"><{if !empty($items['usetime']) }><{$items['usetime']|date_format:"%Y-%m-%d %H:%M"}><{/if}></td> 
+						</tr>
+                       <{/foreach}>
+
+                    </tbody>
+
+                  </table>
+
+                <div class="blank20"></div>
+
+                </form>
+
+               <div class="show_page"><ul><{$pagecontent}></ul></div>
+
+                <div class="blank20"></div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+  </div>
+
+</div>
+<{/block}>

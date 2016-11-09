@@ -1,0 +1,26 @@
+<?php return array (
+  0 => 'CREATE TABLE `xiaozu_goodsgg` (
+  `id` int(20) NOT NULL AUTO_INCREMENT COMMENT \'规格id\',
+  `shoptype` int(1) NOT NULL DEFAULT \'0\' COMMENT \'店铺类型  0餐厅  1超市\',
+  `name` varchar(100) NOT NULL COMMENT \'规格名称/规格值得\',
+  `orderid` int(5) NOT NULL DEFAULT \'999\' COMMENT \'排序ID\',
+  `parent_id` int(20) NOT NULL DEFAULT \'0\' COMMENT \'0表示规格名称    1表示规格值\',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8',
+  1 => 'INSERT INTO `xiaozu_goodsgg`(`id`,`shoptype`,`name`,`orderid`,`parent_id`) VALUES(\'1\',\'0\',\'份量\',\'1\',\'0\')',
+  2 => 'INSERT INTO `xiaozu_goodsgg`(`id`,`shoptype`,`name`,`orderid`,`parent_id`) VALUES(\'2\',\'0\',\'大份\',\'1\',\'1\')',
+  3 => 'INSERT INTO `xiaozu_goodsgg`(`id`,`shoptype`,`name`,`orderid`,`parent_id`) VALUES(\'3\',\'0\',\'小份\',\'2\',\'1\')',
+  4 => 'INSERT INTO `xiaozu_goodsgg`(`id`,`shoptype`,`name`,`orderid`,`parent_id`) VALUES(\'4\',\'0\',\'尺寸\',\'2\',\'0\')',
+  5 => 'INSERT INTO `xiaozu_goodsgg`(`id`,`shoptype`,`name`,`orderid`,`parent_id`) VALUES(\'5\',\'0\',\'10寸\',\'1\',\'4\')',
+  6 => 'INSERT INTO `xiaozu_goodsgg`(`id`,`shoptype`,`name`,`orderid`,`parent_id`) VALUES(\'6\',\'0\',\'12寸\',\'2\',\'4\')',
+  7 => 'INSERT INTO `xiaozu_goodsgg`(`id`,`shoptype`,`name`,`orderid`,`parent_id`) VALUES(\'7\',\'1\',\'份量\',\'1\',\'0\')',
+  8 => 'INSERT INTO `xiaozu_goodsgg`(`id`,`shoptype`,`name`,`orderid`,`parent_id`) VALUES(\'8\',\'1\',\'大包\',\'1\',\'7\')',
+  9 => 'INSERT INTO `xiaozu_goodsgg`(`id`,`shoptype`,`name`,`orderid`,`parent_id`) VALUES(\'9\',\'1\',\'小包\',\'2\',\'7\')',
+  10 => 'INSERT INTO `xiaozu_goodsgg`(`id`,`shoptype`,`name`,`orderid`,`parent_id`) VALUES(\'10\',\'0\',\'口味\',\'1\',\'0\')',
+  11 => 'INSERT INTO `xiaozu_goodsgg`(`id`,`shoptype`,`name`,`orderid`,`parent_id`) VALUES(\'11\',\'0\',\'不辣\',\'0\',\'10\')',
+  12 => 'INSERT INTO `xiaozu_goodsgg`(`id`,`shoptype`,`name`,`orderid`,`parent_id`) VALUES(\'12\',\'0\',\'微辣\',\'0\',\'10\')',
+  13 => 'INSERT INTO `xiaozu_goodsgg`(`id`,`shoptype`,`name`,`orderid`,`parent_id`) VALUES(\'13\',\'0\',\'中辣\',\'0\',\'10\')',
+  14 => 'INSERT INTO `xiaozu_goodsgg`(`id`,`shoptype`,`name`,`orderid`,`parent_id`) VALUES(\'14\',\'0\',\'麻辣\',\'0\',\'10\')',
+  15 => 'INSERT INTO `xiaozu_goodsgg`(`id`,`shoptype`,`name`,`orderid`,`parent_id`) VALUES(\'15\',\'0\',\'特辣\',\'0\',\'10\')',
+  16 => 'INSERT INTO `xiaozu_goodsgg`(`id`,`shoptype`,`name`,`orderid`,`parent_id`) VALUES(\'16\',\'0\',\'甜辣\',\'0\',\'10\')',
+)?>
